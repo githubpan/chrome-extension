@@ -7,8 +7,25 @@
     "default_icon": "tool.png",
     "default_popup": "popup.html"
   },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+//  "content_scripts": {
+//    "js": [
+//      "jq.js",
+//      "content.js"
+//    ]
+//  },
+//  "matches": [
+//    "https://*.v2ex.com/*"
+//  ],
   "permissions": [
     "activeTab",
-    "https://ajax.googleapis.com/"
+    "contextMenus",
+    "https://ajax.googleapis.com/",
+    "http://*/",
+    "httpS://*/"
   ]
 }

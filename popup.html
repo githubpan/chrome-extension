@@ -66,6 +66,10 @@
 <script src="./layui/layui.js"></script>
 <script src="common.js"></script>
 <script src="popup.js"></script>
+<script src="md5.js"></script>
+<script src="sha1.js"></script>
+<script src="sha256.js"></script>
+<script src="sha512.js"></script>
 <script>
 
     //一般直接写在一个js文件中
@@ -80,10 +84,8 @@
 <div class="layui-tab">
     <ul class="layui-tab-title">
         <li class="layui-this">时间</li>
-        <li>JSON</li>
-        <li>加密</li>
-        <li>IP</li>
-        <li>正则</li>
+        <li>编码/加密</li>
+        <!--<li>搜索</li>-->
     </ul>
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
@@ -91,7 +93,7 @@
                 <div class="layui-form-item layui-form-text">
                     <label class="layui-form-label">输入</label>
                     <div class="layui-input-block">
-                        <textarea name="keyword" required lay-verify="required" placeholder="请输入内容" class="layui-textarea"></textarea>
+                        <textarea name="keyword" id="time_key" placeholder="请输入内容" class="layui-textarea"></textarea>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -118,10 +120,71 @@
                 <input type="hidden" name="type" value="time">
             </form>
         </div>
-        <div class="layui-tab-item">内容2</div>
-        <div class="layui-tab-item">内容3</div>
-        <div class="layui-tab-item">内容4</div>
-        <div class="layui-tab-item">内容5</div>
+        <div class="layui-tab-item">
+            <form class="layui-form" id="p" action="">
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">输入</label>
+                    <div class="layui-input-block">
+                        <textarea name="keyword" id="pass_key" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">结果</label>
+                    <div class="layui-input-block">
+                        <textarea name="value" id="pass_value" placeholder="结果..." class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"></label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="pass" value="5" title="JSON_ENCODE" checked>
+                        <input type="radio" name="pass" value="6" title="JSON_DECODE" >
+                        <input type="radio" name="pass" value="7" title="URL_ENCODE" >
+                        <input type="radio" name="pass" value="8" title="URL_DECODE" >
+                        <input type="radio" name="pass" value="1" title="MD5" >
+                        <input type="radio" name="pass" value="2" title="SHA1">
+                        <input type="radio" name="pass" value="3" title="SHA256">
+                        <input type="radio" name="pass" value="4" title="SHA512">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+                <input type="hidden" name="type" value="pass">
+            </form>
+        </div>
+        <!--<div class="layui-tab-item">-->
+            <!--<form class="layui-form" id="s" action="">-->
+                <!--<div class="layui-form-item layui-form-text">-->
+                    <!--<label class="layui-form-label">输入</label>-->
+                    <!--<div class="layui-input-block">-->
+                        <!--<textarea name="keyword" id="search_key" placeholder="请输入内容" class="layui-textarea"></textarea>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="layui-form-item">-->
+                    <!--<label class="layui-form-label">结果</label>-->
+                    <!--<div class="layui-input-block">-->
+                        <!--<textarea name="value" id="search_value" placeholder="结果..." class="layui-textarea"></textarea>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="layui-form-item">-->
+                    <!--<label class="layui-form-label"></label>-->
+                    <!--<div class="layui-input-block">-->
+                        <!--<input type="radio" name="search" value="1" title="PHP" checked>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="layui-form-item">-->
+                    <!--<div class="layui-input-block">-->
+                        <!--<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>-->
+                        <!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<input type="hidden" name="type" value="search">-->
+            <!--</form>-->
+        <!--</div>-->
     </div>
 </div>
 

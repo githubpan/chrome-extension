@@ -1,5 +1,5 @@
 $(function () {
-    $('#time_value').click(function () {
+    $('#time_value,#time_key, #pass_value, #pass_key, #search_key').click(function () {
         //默认选中
         $(this).select();
     });
@@ -26,10 +26,64 @@ layui.use('element', function () {
  */
 function runScript(ob) {
     switch (ob.type) {
-        //时间戳相关
+        //time
         case 'time':
             if (ob.time == 1) {
+                //time to date
                 timeToDate(ob.keyword);
+            }
+            if (ob.time == 2) {
+                //date to time
+                dateToTime(ob.keyword);
+            }
+            if (ob.time == 3) {
+                //second to date
+                formatSeconds(ob.keyword);
+            }
+            if (ob.time == 4) {
+                //to date
+                currentTime();
+            }
+            break;
+        case 'pass':
+            if (ob.pass == 1) {
+                //md5 encode
+                md5encode(ob.keyword);
+            }
+            if (ob.pass == 2) {
+                //sha1
+                hash('sha1');
+            }
+            if (ob.pass == 3) {
+                //sha256
+                hash('sha256');
+            }
+            if (ob.pass == 4) {
+                //sha512
+                hash('sha512');
+            }
+            if (ob.pass == 5) {
+                //JSON ENCODE
+                hash('5');
+            }
+            if (ob.pass == 6) {
+                //JSON DECODE
+                hash('6');
+            }
+            if (ob.pass == 7) {
+                //URL ENCODE
+                hash('7');
+            }
+            if (ob.pass == 8) {
+                //URL DECODE
+                hash('8');
+            }
+
+            break;
+
+        case 'search':
+            if (ob.search == 1) {
+                search(ob.keyword);
             }
             break;
 
